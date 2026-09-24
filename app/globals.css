@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* ===========================================================================
+   Design tokens — Dark neon (cyan + violet)
+   =========================================================================== */
+:root {
+  /* Surfaces */
+  --background: #08080c;
+  --surface: #0e0e16;
+  --surface-2: #141420;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Text */
+  --foreground: #eaeaf0;
+  --muted: #a1a1b5;
+  --faint: #6b6b80;
+
+  /* Neon accents */
+  --cyan: #22d3ee;
+  --cyan-deep: #06b6d4;
+  --violet: #a855f7;
+  --violet-deep: #7c3aed;
+
+  --glow-cyan: rgba(34, 211, 238, 0.35);
+  --glow-violet: rgba(168, 85, 247, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-border: var(--border);
+
+  --color-cyan: var(--cyan);
+  --color-cyan-deep: var(--cyan-deep);
+  --color-violet: var(--violet);
+  --color-violet-deep: var(--violet-deep);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ===========================================================================
+   Base
+   =========================================================================== */
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--glow-violet);
+  color: #fff;
+}
+
+/* Custom scrollbar — subtle, translucent violet "floating pill" */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 999px;
+  /* transparent border + padding-box clip = inset padding, floating look */
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.55);
+  background-clip: padding-box;
+}
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.4) transparent;
+}
+
+/* ===========================================================================
+   Utilities
+   =========================================================================== */
+
+/* Gradient text — cyan → violet */
+.text-gradient {
+  background: linear-gradient(120deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass card */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.015)
+  );
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+/* Neon glow ring on hover */
+.glow-hover {
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+}
+.glow-hover:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.25),
+    0 8px 40px -12px var(--glow-cyan), 0 8px 40px -20px var(--glow-violet);
+}
+
+/* Section container */
+.container-x {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Subtle top divider glow used between sections */
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-strong),
+    transparent
+  );
+}
+
+/* Grid backdrop */
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Radial mask helper (fades edges of the grid) */
+.mask-radial {
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+}
+
+/* Aurora blobs animation */
+@keyframes aurora-1 {
+  0%, 100% { transform: translate(-10%, -10%) scale(1); }
+  50% { transform: translate(10%, 10%) scale(1.25); }
+}
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(10%, 0%) scale(1.15); }
+  50% { transform: translate(-10%, 15%) scale(1); }
+}
+.aurora-1 { animation: aurora-1 18s ease-in-out infinite; }
+.aurora-2 { animation: aurora-2 22s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .aurora-1, .aurora-2 { animation: none; }
+}
