@@ -201,11 +201,13 @@ const en: Dictionary = {
           { value: "1 click", label: "health ministry report" },
         ],
         screenshots: [
-          { src: "/project-screens/podocrm/login.png", caption: "One-click access to the demo" },
-          { src: "/project-screens/podocrm/panel.png", caption: "Day panel" },
+          { src: "/project-screens/podocrm/panel.png", caption: "Dashboard with the day's summary and trends" },
+          { src: "/project-screens/podocrm/analitica.png", caption: "Business analytics: revenue and attendance" },
           { src: "/project-screens/podocrm/citas.png", caption: "Appointments grouped by week" },
           { src: "/project-screens/podocrm/caja.png", caption: "Daily cash close" },
-          { src: "/project-screens/podocrm/ficha.png", caption: "Patient record" },
+          { src: "/project-screens/podocrm/ficha.png", caption: "Patient record with health alerts" },
+          { src: "/project-screens/podocrm/pacientes.png", caption: "Patient search with filters" },
+          { src: "/project-screens/podocrm/login.png", caption: "One-click access to the demo" },
         ],
       },
       "app-tiempo-real": {

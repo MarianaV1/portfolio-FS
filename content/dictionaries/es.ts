@@ -201,11 +201,13 @@ const es: Dictionary = {
           { value: "1 clic", label: "reporte para Salud" },
         ],
         screenshots: [
-          { src: "/project-screens/podocrm/login.png", caption: "Acceso a la demo con un clic" },
-          { src: "/project-screens/podocrm/panel.png", caption: "Panel del día" },
+          { src: "/project-screens/podocrm/panel.png", caption: "Panel con resumen del día y tendencias" },
+          { src: "/project-screens/podocrm/analitica.png", caption: "Análisis del negocio: ingresos y asistencia" },
           { src: "/project-screens/podocrm/citas.png", caption: "Citas agrupadas por semana" },
           { src: "/project-screens/podocrm/caja.png", caption: "Corte de caja del día" },
-          { src: "/project-screens/podocrm/ficha.png", caption: "Ficha del paciente" },
+          { src: "/project-screens/podocrm/ficha.png", caption: "Ficha del paciente con alertas de salud" },
+          { src: "/project-screens/podocrm/pacientes.png", caption: "Buscador de pacientes con filtros" },
+          { src: "/project-screens/podocrm/login.png", caption: "Acceso a la demo con un clic" },
         ],
       },
       "app-tiempo-real": {
