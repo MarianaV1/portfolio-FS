@@ -11,6 +11,7 @@ import { isLocale } from "@/content/i18n";
 import { getDictionary } from "@/content/dictionary";
 import { getProjects } from "@/content/projects";
 import { getExpressLabels } from "@/content/express";
+import { Analytics } from "@vercel/analytics/next";
 
 export default async function Home({
   params,
@@ -51,6 +52,7 @@ export default async function Home({
           <div className="divider-glow" />
         </div>
         <Contact data={dict.contact} />
+        <Analytics />
       </main>
     </>
   );

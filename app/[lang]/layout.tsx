@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { locales, toLocale } from "@/content/i18n";
 import { getDictionary } from "@/content/dictionary";
 import { site } from "@/content/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
